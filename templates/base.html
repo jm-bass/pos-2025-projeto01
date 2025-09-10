@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %} Consulta SUAP {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -56,11 +57,10 @@
     {% endblock %}
     
 
-    {% block footer %}
+    
     <footer>
         Rodapé da página
     </footer>
-    {% endblock %}
 
 </body>
 </html>
