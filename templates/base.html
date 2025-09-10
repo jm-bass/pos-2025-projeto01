@@ -10,7 +10,7 @@
     {% block header %}
 
     <a href="{{ url_for('index')}}">
-        <img src="../img/logosuap.png" alt="Logo SUAP">
+        <img src="{{ url_for('static', filename='logosuap.png') }}" alt="Logo SUAP">
         <span>
             Login SUAP OAuth - Consulta de dados segura
         </span>
