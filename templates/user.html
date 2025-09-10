@@ -2,12 +2,8 @@
 
 {% block title %} Logado com OAuth SUAP {% endblock %}
 
-{% block header %}
-{% endblock %}
 
 {% block content %}
-    <h2>{% block title %} {{ user_data['nome_usual'] }} {% endblock %}</h2>
-
 
     <img src="" alt="">
 
@@ -15,6 +11,9 @@
     <h1>
         Informações do usuário: {{ user_data['nome_usual'] }}
     </h1>
+
+    <img src="{{ user_data['url_foto_150x200'] }}" alt="Foto Usuário">
+
     <p>
         Nome completo: {{ user_data.vinculo['nome'] }}
     </p>

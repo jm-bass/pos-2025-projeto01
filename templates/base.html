@@ -10,15 +10,16 @@
 <body>
     {% block header %}
 
+    {% if not 'suap_token' in session %}
     <a href="{{ url_for('index')}}">
         <img src="{{ url_for('static', filename='logosuap.png') }}" alt="Logo SUAP">
         <span>
             Login SUAP OAuth - Consulta de dados segura
         </span>
     </a>
+    {% endif %}
 
     {% if 'suap_token' in session %}
-        <h1>logado</h1>
         <div>
             <nav>
                 <ul>

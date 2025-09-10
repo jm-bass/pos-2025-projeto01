@@ -2,8 +2,6 @@
 
 {% block title %} Logado com OAuth SUAP {% endblock %}
 
-{% block header %}
-{% endblock %}
 
 {% block content %}
 <a href="{{url_for('index')}}">Início</a>
@@ -87,7 +85,7 @@
             </th>
         </tr>
     </thead>
-    {% for disciplina in user_data.results %}
+    {% for disciplina in user_data_boletim.results %}
         <tr>
             <td>{{ disciplina.codigo_diario }}</td>
             <td>{{ disciplina.disciplina }}</td>
