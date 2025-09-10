@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Normal {% endblock %}</title>
+</head>
+
+<body>
+    {% block header %}
+
+    <h1><a href="{{ url_for('index')}}">Login SUAP OAuth - Consulta de dados segura</a></h1>
+
+    {% endblock %}
+
+
+
+    {% if 'suap_token' in session %}
+        <h1>logado</h1>
+        <div>
+            <nav>
+                <ul>
+                    <li>nome</li>
+                    <li>matrícula</li>
+                    <li>avatar do usuário</li>
+                    <li>botão de logout</li>
+                </ul>
+            </nav>
+        </div>
+    {% else %}
+        <h1>não logado</h1>
+    {% endif %}
+
+
+
+
+    {% block content %}
+
+    {% endblock %}
+    
+
+    {% block footer %}
+
+    {% endblock %}
+
+
+</body>
+</html>
