@@ -1,13 +1,128 @@
 {% extends 'base.html' %}
-{% block title %}
-{% endblock %}
 
+{% block title %} Logado com OAuth SUAP {% endblock %}
 
 {% block header %}
 {% endblock %}
 
 {% block content %}
 <a href="{{url_for('index')}}">Início</a>
+
+<table border="2" cellpadding="12">
+    <thead>
+        <tr>
+            <th rowspan="2">
+                Diário
+            </th>
+            <th rowspan="2">
+                Disciplina
+            </th>
+            <th rowspan="2">
+                C. H.
+            </th>
+            <th rowspan="2">
+                Total de Aulas
+            </th>
+            <th rowspan="2">
+                Total de Faltas
+            </th>
+            <th rowspan="2">
+                % Freq.
+            </th>
+            <th rowspan="2">
+                Situação
+            </th>
+            <th colspan="2">
+                E1
+            </th>
+            <th colspan="2">
+                E2
+            </th>
+            <th colspan="2">
+                E3
+            </th>
+            <th colspan="2">
+                E4
+            </th>
+            <th rowspan="2">
+                MD
+            </th>
+            <th colspan="2">
+                NAF
+            </th>
+            <th rowspan="2">
+                MFD/Conceito
+            </th>
+        </tr>
+        <tr>
+            <th>
+                N
+            </th>
+            <th>
+                F
+            </th>
+            <th>
+                N
+            </th>
+            <th>
+                F
+            </th>
+            <th>
+                N
+            </th>
+            <th>
+                F
+            </th>
+            <th>
+                N
+            </th>
+            <th>
+                F
+            </th>
+            <th>
+                N
+            </th>
+            <th>
+                F
+            </th>
+        </tr>
+    </thead>
+    {% for disciplina in user_data.results %}
+        <tr>
+            <td>{{ disciplina.codigo_diario }}</td>
+            <td>{{ disciplina.disciplina }}</td>
+            <td>{{ disciplina.carga_horaria }}</td>
+            <td>{{ disciplina.carga_horaria_cumprida }}</td>
+            <td>{{ disciplina.numero_faltas }}</td>
+            <td>{{ disciplina.percentual_carga_horaria_frequentada }}%</td>
+            <td>{{ disciplina.situacao }}</td>
+            {% if disciplina.segundo_semestre == True %}
+                <td>{{ disciplina.nota_etapa_3.nota }}</td>
+                <td>{{ disciplina.nota_etapa_3.faltas }}</td>
+                <td>{{ disciplina.nota_etapa_4.nota }}</td>
+                <td>{{ disciplina.nota_etapa_4.faltas }}</td>
+                <td>{{ disciplina.nota_etapa_1.nota }}</td>
+                <td>{{ disciplina.nota_etapa_1.faltas }}</td>
+                <td>{{ disciplina.nota_etapa_2.nota }}</td>
+                <td>{{ disciplina.nota_etapa_2.faltas }}</td>
+            {% else %}
+                <td>{{ disciplina.nota_etapa_1.nota }}</td>
+                <td>{{ disciplina.nota_etapa_1.faltas }}</td>
+                <td>{{ disciplina.nota_etapa_2.nota }}</td>
+                <td>{{ disciplina.nota_etapa_2.faltas }}</td>
+                <td>{{ disciplina.nota_etapa_3.nota }}</td>
+                <td>{{ disciplina.nota_etapa_3.faltas }}</td>
+                <td>{{ disciplina.nota_etapa_4.nota }}</td>
+                <td>{{ disciplina.nota_etapa_4.faltas }}</td>
+            {% endif %}
+            <td>{{ disciplina.media_disciplina }}</td>
+            <td>{{ disciplina.nota_avaliacao_final.nota }}</td>
+            <td>{{ disciplina.nota_avaliacao_final.faltas }}</td>
+            <td>{{ disciplina.media_final_disciplina }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
 
 {% block footer %}

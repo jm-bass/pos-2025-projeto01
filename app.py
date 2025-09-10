@@ -27,9 +27,6 @@ oauth.register(
 def index():
     if 'suap_token' in session:
         meus_dados = oauth.suap.get('v2/minhas-informacoes/meus-dados')
-
-        print(meus_dados.json())
-
         return render_template('user.html', user_data=meus_dados.json())
     else:
         return render_template('index.html')
@@ -57,4 +54,9 @@ def auth():
 
 @app.route('/boletim')
 def boletim():
-    return render_template('boletim.html')
+    if 'suap_token' in session:
+        meus_dados = oauth.suap.get('https://suap.ifrn.edu.br/api/ensino/meu-boletim/2022/1/')
+
+        return render_template('boletim.html', user_data=meus_dados.json())
+    else:
+        return render_template('index.html')
