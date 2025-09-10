@@ -2,41 +2,41 @@
 
 {% block content %}
     <h2>{% block title %} {{ user_data['nome_usual'] }} {% endblock %}</h2>
-    <img src="{{ user_data['url_foto_150x200'] }}" alt="foto">
+    <img src="{{ user_data['url_foto_150x200'] }}" alt="Foto Usuário">
 
+    <!--
     {% for field in user_data %}
 
     <p> <b>{{ field }}</b>: {{ user_data[field] }} </p>
 
     {% endfor %}
-
-    <p><a href="{{url_for('logout')}}">Logout</a></p>
+    -->
 
 
 
     <img src="" alt="">
 
     <h1>
-        Informações do usuário:
+        Informações do usuário: {{ user_data['nome_usual'] }}
     </h1>
-    <strong>
-        Nome completo: 
-    </strong>
-    <strong>
-        Matrícula: 
-    </strong>
-    <strong>
-        CPF (parcial ou ocultável):
-    </strong>
-    <strong>
-        Curso e campus: 
-    </strong>
-    <strong>
-        Email institucional: 
-    </strong>
-    <strong>
-        Data de ingresso: 
-    </strong>
+    <p>
+        Nome completo: {{ user_data.vinculo['nome'] }}
+    </p>
+    <p>
+        Matrícula: {{ user_data.vinculo['matricula'] }}
+    </p>
+    <p>
+        CPF: {{ user_data['cpf'] }}
+    </p>
+    <p>
+        Curso e campus: {{ user_data.vinculo['curso'] }} - {{ user_data.vinculo['campus'] }}
+    </p>
+    <p>
+        Email institucional: {{ user_data['email'] }}
+    </p>
+    <p>
+       Vínculo: {{ user_data['tipo_vinculo'] }} - {{ user_data.vinculo['situacao_sistemica'] }}
+    </p>
 
 
     <h1>
