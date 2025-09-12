@@ -61,7 +61,7 @@ def boletim():
         if periodo:
             ano_letivo, periodo_letivo = periodo.split('/')
         else:
-            ano_letivo = ''
+            ano_letivo = '2025'
             periodo_letivo = '1'
     
         meus_dados_boletim = oauth.suap.get(f'https://suap.ifrn.edu.br/api/ensino/meu-boletim/{ano_letivo}/{periodo_letivo}/')
