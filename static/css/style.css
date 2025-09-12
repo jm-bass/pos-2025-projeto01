@@ -31,12 +31,15 @@ header {
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    background-color: var(--fundo-escuro);
 
-    background-color: aquamarine;
+    span {
+        color: var(--texto-claro);
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
     .parteFixa {
-        background-color: blanchedalmond;
-
         a {
             text-decoration: none;
             display: flex;
@@ -45,6 +48,7 @@ header {
             width: 100%;
         }
     }
+
 
     .parteVariavel {
         background-color: blanchedalmond;
@@ -62,6 +66,7 @@ header {
   
 }
 
+
 .fundo-inicial {
     position: relative;
     background-image: url('../IFRN-Campus-Mossoro.jpg') ;
@@ -69,8 +74,8 @@ header {
     background-size: cover;
 
     .conteudo{
-        background-color: #008bcc3d;
-        color: white;
+        background-color: #00e5c6b4;
+        color: var(--texto-escuro);
         
         li {
             list-style: none;
@@ -78,14 +83,64 @@ header {
     }
 }
 
+
 main {
     background-color: lightpink;
 }
+
+
+.inicio {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--texto-escuro);
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.4em;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        font-weight: bolder;
+        margin-bottom: .5rem;
+    }
+
+    li {
+        list-style: none;
+        font-size: 1.em;
+        line-height: 1.6;
+        font-weight: normal;
+    }
+
+    button {
+        background-color: var(--cor-secundaria);
+        color: var(--texto-claro);
+        border: none;
+        padding: 15px 30px;
+        margin-top: 6%;
+        font-size: 1.2em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: var(--fundo-escuro);
+            padding: 18px 36px;
+            margin-top: 5.5%;
+        }
+    }
+}
+
+
+
 
 .conteudo {
     padding: 20px;
     min-height: 70vh; /* Ajuste conforme necessário */
 }
+
 
 .link-boletim {
     text-decoration: none;
@@ -115,8 +170,7 @@ table {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: aquamarine;
-    width: 100%;
+    background-color: var(--cor-secundaria);
 
     div {
         display: flex;
@@ -124,12 +178,31 @@ footer {
         gap: 10%;
         align-items: center;
 
+        span {
+            color: var(--texto-claro);
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+        }
+
         span ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
             gap: 4%;
+
+            li a {
+                text-decoration: none;
+                color: var(--texto-escuro);
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }
