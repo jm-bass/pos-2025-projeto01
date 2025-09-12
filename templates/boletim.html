@@ -8,6 +8,22 @@
 <a href="{{url_for('index')}}">Início</a>
 -->
 
+<div class="form">
+    <strong>
+        Olá, {{ user_data.nome_usual }}! Escolha o período letivo desejado:
+    </strong>
+
+    <form action="{{ url_for('boletim') }}" method="get">
+        <select name="periodo" id="periodo">
+            {% for periodo in periodos.results %}
+                <option value="{{ periodo.ano_letivo }}/{{ periodo.periodo_letivo }}">{{ periodo.ano_letivo }}/{{ periodo.periodo_letivo }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Filtrar">
+    </form>
+
+</div>
+
 <table border="2" cellpadding="12">
     <thead>
         <tr>

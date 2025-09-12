@@ -103,6 +103,14 @@ main {
     }
 }
 
+.form {
+    margin: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
 footer {
     text-align: center;

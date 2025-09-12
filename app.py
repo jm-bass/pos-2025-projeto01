@@ -52,16 +52,26 @@ def auth():
     return redirect(url_for('index'))
 
 
-@app.route('/boletim')
+@app.route('/boletim', methods=['GET','POST'])
 def boletim():
     if 'suap_token' in session:
-        meus_dados_boletim = oauth.suap.get('https://suap.ifrn.edu.br/api/ensino/meu-boletim/2022/1/')
+
+        periodo = request.args.get('periodo')
+
+        if periodo:
+            ano_letivo, periodo_letivo = periodo.split('/')
+        else:
+            ano_letivo = ''
+            periodo_letivo = '1'
+    
+        meus_dados_boletim = oauth.suap.get(f'https://suap.ifrn.edu.br/api/ensino/meu-boletim/{ano_letivo}/{periodo_letivo}/')
         meus_dados = oauth.suap.get('v2/minhas-informacoes/meus-dados')
+        periodos = oauth.suap.get('https://suap.ifrn.edu.br/api/ensino/meus-periodos-letivos/')
 
-
-        return render_template('boletim.html', user_data_boletim=meus_dados_boletim.json(), user_data=meus_dados.json())
+        return render_template('boletim.html', user_data_boletim=meus_dados_boletim.json(), user_data=meus_dados.json(), periodos=periodos.json())
     else:
         return render_template('index.html')
+
     
 if __name__ == "__main__":
     app.run(debug=True)
