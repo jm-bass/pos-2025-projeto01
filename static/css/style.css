@@ -161,7 +161,6 @@ header {
     min-height: 70vh; /* Ajuste conforme necessário */
 }
 
-
 .link-boletim {
     color: var(--texto-claro);
     font-weight: bold;
@@ -183,12 +182,44 @@ header {
 }
 
 .form {
-    margin: 40px;
+    padding: 40px;
+    background-color: var(--cor-primaria);
+
+    select, input {
+         background-color: var(--cor-secundaria);
+            color: var(--texto-claro);
+            font-weight: bolder;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 4px;
+            margin-right: 8px;
+            padding-block: 10px;
+            font-size: .8em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: var(--fundo-claro);
+                color: var(--texto-escuro);
+            }
+
+            option {
+            background-color: var(--cor-primaria);
+            color: var(--texto-escuro);
+            font-weight: normal;
+        }
+        }
+    
+        
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: var(--cor-secundaria);
+    color: var(--texto-claro);
+    border: var(--texto-escuro) 4px solid;
 }
 
 footer {
