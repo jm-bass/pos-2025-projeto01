@@ -62,3 +62,6 @@ def boletim():
         return render_template('boletim.html', user_data_boletim=meus_dados_boletim.json(), user_data=meus_dados.json())
     else:
         return render_template('index.html')
+    
+if __name__ == "__main__":
+    app.run(debug=True)
