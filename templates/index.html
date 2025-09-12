@@ -3,29 +3,33 @@
 {% block title %} Consulta com OAuth SUAP {% endblock %}
 
 {% block content %}
-    <h1>
-        Sistema Unificado de Administração Pública do IFRN
-    </h1>
 
-    <ul>
-        <p>Recursos disponíveis</p>
-        <li>
-            ✔ Visualização de perfil com foto
-        </li>
-        <li>
-            ✔ Acesso ao boletim completo por ano
-        </li>
-        <li>
-            ✔ Navegação rápida e segura via OAuth
-        </li>
-    </ul>
+    <main class="fundo-inicial">
+        <div class="conteudo">
+            <h1>
+            Sistema Unificado de Administração Pública do IFRN
+            </h1>
+
+            <ul>
+                <p>Recursos disponíveis</p>
+                <li>
+                    ✔ Visualização de perfil com foto
+                </li>
+                <li>
+                    ✔ Acesso ao boletim completo por ano
+                </li>
+                <li>
+                    ✔ Navegação rápida e segura via OAuth
+                </li>
+            </ul>
 
 
-    <a href="{{url_for('login')}}">
-        <button>
-            Login
-        </button>
-    </a>
-
-    <img src="" alt="Foto de fundo">    
+            <a href="{{url_for('login')}}">
+                <button>
+                    Login
+                </button>
+            </a>
+        </div>
+    </main>
+    
 {% endblock %}

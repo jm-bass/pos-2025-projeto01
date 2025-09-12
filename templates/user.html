@@ -4,41 +4,52 @@
 
 
 {% block content %}
+    <main>
+        <div class="conteudo">
+            <h1>
+            Informações do usuário: {{ user_data['nome_usual'] }}
+            </h1>
 
-    <img src="" alt="">
+            <div class="d-flex gap-10">
+                <img src="{{ user_data['url_foto_150x200'] }}" alt="Foto Usuário">
+
+                <div>
+                    <div>
+                        <p>
+                            Nome completo: {{ user_data.vinculo['nome'] }}
+                        </p>
+                        <p>
+                            Matrícula: {{ user_data.vinculo['matricula'] }}
+                        </p>
+                        <p>
+                            CPF: {{ user_data['cpf'] }}
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Curso e campus: {{ user_data.vinculo['curso'] }} - {{ user_data.vinculo['campus'] }}
+                        </p>
+                        <p>
+                            Email institucional: {{ user_data['email'] }}
+                        </p>
+                        <p>
+                        Vínculo: {{ user_data['tipo_vinculo'] }} - {{ user_data.vinculo['situacao_sistemica'] }}
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+
+            
 
 
-    <h1>
-        Informações do usuário: {{ user_data['nome_usual'] }}
-    </h1>
-
-    <img src="{{ user_data['url_foto_150x200'] }}" alt="Foto Usuário">
-
-    <p>
-        Nome completo: {{ user_data.vinculo['nome'] }}
-    </p>
-    <p>
-        Matrícula: {{ user_data.vinculo['matricula'] }}
-    </p>
-    <p>
-        CPF: {{ user_data['cpf'] }}
-    </p>
-    <p>
-        Curso e campus: {{ user_data.vinculo['curso'] }} - {{ user_data.vinculo['campus'] }}
-    </p>
-    <p>
-        Email institucional: {{ user_data['email'] }}
-    </p>
-    <p>
-       Vínculo: {{ user_data['tipo_vinculo'] }} - {{ user_data.vinculo['situacao_sistemica'] }}
-    </p>
-
-
-    <h1>
-        <a href="{{ url_for('boletim')}}">
-        BOLETIM
-        </a>
-    </h1>
+            <h1 class="link-boletim">
+                <a href="{{ url_for('boletim')}}">
+                BOLETIM
+                </a>
+            </h1>
+        </div>
+    </main>
 
 {% endblock %}
 
